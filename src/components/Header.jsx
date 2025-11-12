@@ -5,7 +5,7 @@ function Header() {
         <div className="header-left">
           <div className="profile-section">
             <div className="profile-picture">
-              <img src="/profile-photo.png" alt="Pradatta Adhikary" className="profile-img" />
+              <img src={`${import.meta.env.BASE_URL}profile-photo.png`} alt="Pradatta Adhikary" className="profile-img" />
             </div>
             <div className="profile-text">
               <h1 className="name name--primary">PRADATTA ADHIKARY</h1>

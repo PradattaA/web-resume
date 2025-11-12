@@ -110,6 +110,50 @@ src/
    npm run preview
    ```
 
+## 🚀 Deployment
+
+### GitHub Pages Deployment
+
+This project is configured for easy deployment to GitHub Pages with two methods:
+
+#### Method 1: Automatic Deployment (Recommended)
+
+1. **Push to main branch** - The GitHub Actions workflow will automatically build and deploy
+2. **Enable GitHub Pages** in your repository settings:
+   - Go to Settings → Pages
+   - Source: Deploy from a branch
+   - Branch: `gh-pages` / `/ (root)`
+3. **Access your resume** at `https://yourusername.github.io`
+
+#### Method 2: Manual Deployment
+
+1. **Install gh-pages** (if not already installed)
+   ```bash
+   npm install --save-dev gh-pages
+   ```
+
+2. **Deploy manually**
+   ```bash
+   npm run deploy
+   ```
+
+3. **Enable GitHub Pages** in repository settings (same as above)
+
+### Custom Domain (Optional)
+
+To use a custom domain:
+
+1. **Add CNAME file** in the `public/` directory with your domain
+2. **Configure DNS** to point to `yourusername.github.io`
+3. **Update homepage** in `package.json` to your custom domain
+
+### Environment Setup
+
+Make sure your repository has:
+- ✅ **Public repository** (or GitHub Pro for private)
+- ✅ **GitHub Actions enabled**
+- ✅ **Pages enabled** in repository settings
+
 ## 📝 Customization
 
 ### Adding Work Experience

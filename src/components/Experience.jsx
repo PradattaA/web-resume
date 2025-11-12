@@ -13,7 +13,7 @@ function Experience() {
             <div className="experience-left">
               <div className="company-info">
                 <img 
-                  src={experience.logo} 
+                  src={`${import.meta.env.BASE_URL}${experience.logo.startsWith('/') ? experience.logo.slice(1) : experience.logo}`} 
                   alt={`${experience.company} logo`}
                   className="company-logo"
                   onError={(e) => {
