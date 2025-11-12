@@ -25,6 +25,22 @@ function MobileNav() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Close menu on any click except the burger button
+  useEffect(() => {
+    const handleDocumentClick = (e) => {
+      if (isOpen) {
+        const toggleButton = document.querySelector('.mobile-nav-toggle')
+        // Close menu if click is not on the toggle button
+        if (toggleButton && !toggleButton.contains(e.target)) {
+          setIsOpen(false)
+        }
+      }
+    }
+
+    document.addEventListener('click', handleDocumentClick)
+    return () => document.removeEventListener('click', handleDocumentClick)
+  }, [isOpen])
+
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
@@ -35,6 +51,7 @@ function MobileNav() {
       document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' })
     }
   }
+
 
   return (
     <>

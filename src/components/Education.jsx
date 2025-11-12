@@ -7,7 +7,7 @@ function Education() {
           <div>Pailan College of Management & Technology</div>
           <div className="subtitle">(Under West Bengali University of Technology)</div>
         </div>
-        <div className="degree">B.Tech. Computer Science</div>
+        <div className="degree">Bachelor of Technology<br />Computer Science</div>
       </div>
       <div className="education-item">
         <div className="institution">

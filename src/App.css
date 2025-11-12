@@ -47,7 +47,7 @@ body {
 .floating-nav {
   position: fixed;
   right: calc(50% - 667px);
-  top: 28.2%;
+  top: 37%;
   transform: translateY(-50%);
   z-index: 1;
   display: flex;
@@ -770,162 +770,20 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-  #root {
-    padding: 10px;
-  }
-  
-  .resume-container {
-    width: 95%;
-  }
-  
-  .main-content {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 0 30px;
-  }
-  
-  .left-column, .right-column {
-    padding: 20px 0;
-  }
-  
-  .left-column {
-    padding-right: 0;
-    border-bottom: 2px solid #e0e0e0;
-    margin-bottom: 20px;
-  }
-  
-  .right-column {
-    padding-left: 0;
-  }
-  
-  .experience-section {
-    padding: 20px 30px;
-  }
-  
-  .experience-item-full {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .experience-right .position-title {
-    text-align: left;
-  }
-}
-
-@media (max-width: 768px) {
-  body {
-    padding: 0;
-    background-color: #ffffff;
-  }
-  
-  .resume-container {
-    width: 100%;
-    max-width: 100%;
-    border-radius: 0;
-    margin: 0;
-    position: relative;
-  }
-  
-  /* Header responsive - Mobile only */
-  .header {
-    padding: 20px 15px 25px 15px;
-    border-radius: 0;
-  }
-  
-  .header--split .header-grid {
-    display: block !important;
-    grid-template-columns: none !important;
-    text-align: center;
-  }
-  
-  .header-left {
-    margin-bottom: 25px;
-  }
-  
-  .header-right {
-    width: 100%;
-  }
-  
-  .profile-section {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-    align-items: center;
-  }
-  
-  .profile-text {
-    align-items: center;
-    text-align: center;
-  }
-  
-  .profile-img {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .name {
-    font-size: 1.8rem;
-    text-align: center;
-  }
-  
-  .role-title {
-    font-size: 1.1rem;
-    text-align: center;
-  }
-  
-  .contact-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: flex-start;
-    width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
-    list-style: none;
-    margin: 0;
-  }
-  
-  .contact-row {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 12px;
-    width: 100%;
-    font-size: 0.8rem;
-    text-align: left;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  .contact-icon {
-    flex-shrink: 0;
-    width: 24px;
-    font-size: 1rem;
-    text-align: center;
-  }
-  
-  .contact-link {
-    word-break: break-word;
-    overflow-wrap: break-word;
-    text-align: left;
-    flex: 1;
-    min-width: 0;
-  }
-  
-  /* Hide desktop navigation */
+/* Hide floating nav and show mobile nav for screens under 1350px */
+@media (max-width: 1350px) {
   .floating-nav {
     display: none;
   }
   
-  /* Show Mobile Navigation */
+  /* Show Mobile Navigation for medium screens */
   .mobile-nav-toggle {
     display: block !important;
     position: fixed;
     top: 300px;
     right: 30px;
     z-index: 1000;
-    background: rgba(52, 152, 219, 0.9);
+    background: rgba(52, 152, 219, 0.6);
     border: none;
     border-radius: 8px;
     width: 50px;
@@ -933,7 +791,7 @@ body {
     cursor: pointer;
     padding: 0;
     backdrop-filter: blur(10px);
-    transition: top 0.2s ease;
+    transition: all 0.2s ease;
   }
   
   .mobile-nav-toggle span {
@@ -956,6 +814,11 @@ body {
   
   .mobile-nav-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  .mobile-nav-toggle:hover {
+    background: rgba(52, 152, 219, 0.8);
+    transform: scale(1.05);
   }
   
   .mobile-nav-overlay {
@@ -1007,86 +870,607 @@ body {
   .mobile-nav-item:hover {
     transform: translateY(-5px);
   }
+}
+
+@media (max-width: 1000px) {
+  #root {
+    padding: 10px;
+  }
+  
+  .resume-container {
+    width: 95%;
+  }
+  
+  /* Header stacked layout for medium screens */
+  .header {
+    padding: 24px 30px;
+  }
+  
+  .header--split .header-grid {
+    display: block !important;
+    grid-template-columns: none !important;
+    text-align: center;
+  }
+  
+  .header-left {
+    margin-bottom: 25px;
+  }
+  
+  .header-right {
+    justify-self: start;
+    width: 100%;
+  }
+  
+  .profile-section {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .profile-text {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  .contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+  
+  /* Adjust burger button position for stacked header */
+  .mobile-nav-toggle {
+    top: 350px !important;
+    right: 60px !important;
+  }
+  
+  .main-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 30px;
+  }
+  
+  .left-column, .right-column {
+    padding: 20px 0;
+  }
+  
+  .left-column {
+    padding-right: 0;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 20px;
+  }
+  
+  .right-column {
+    padding-left: 0;
+  }
+  
+  .experience-section {
+    padding: 20px 30px;
+  }
+  
+  .experience-item-full {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .experience-right .position-title {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+    background-color: #ffffff;
+    /* Education degree smaller on mobile */
+  /* Education items vertically centered on mobile */
+  .education-item {
+    align-items: center;
+  }
+
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .resume-container {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    margin: 0;
+    position: relative;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  /* Header responsive - Mobile only */
+  .header {
+    padding: 20px 15px 25px 15px;
+    border-radius: 0;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .header--split .header-grid {
+    display: block !important;
+    grid-template-columns: none !important;
+    text-align: center;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .header-left {
+    margin-bottom: 25px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .header-right {
+    width: 100%;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .profile-section {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+    align-items: center;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .profile-text {
+    align-items: center;
+    text-align: center;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .profile-img {
+    width: 100px;
+    height: 100px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .name {
+    font-size: 1.8rem;
+    text-align: center;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .role-title {
+    font-size: 1.1rem;
+    text-align: center;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    list-style: none;
+    margin: 0;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    width: 100%;
+    font-size: 0.8rem;
+    text-align: left;
+    padding: 0;
+    box-sizing: border-box;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .contact-icon {
+    flex-shrink: 0;
+    width: 24px;
+    font-size: 1rem;
+    text-align: center;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .contact-link {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    text-align: left;
+    flex: 1;
+    min-width: 0;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  /* Hide desktop navigation */
+  .floating-nav {
+    display: none;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  /* Show Mobile Navigation */
+  .mobile-nav-toggle {
+    display: block !important;
+    position: fixed;
+    top: 300px !important;
+    right: 30px !important;
+    z-index: 1000;
+    background: rgba(52, 152, 219, 0.6);
+    border: none;
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    padding: 0;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .mobile-nav-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px auto;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .mobile-nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .mobile-nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .mobile-nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+
+  .mobile-nav-toggle:hover {
+    background: rgba(52, 152, 219, 0.8);
+    transform: scale(1.05);
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .mobile-nav-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .mobile-nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .mobile-nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    gap: 30px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .mobile-nav-item i {
+    font-size: 2rem;
+    color: #3498db;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
+  
+  .mobile-nav-item:hover {
+    transform: translateY(-5px);
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
+}
   
   /* Content sections - full width */
   .header, .summary {
     padding: 20px 15px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   /* Summary responsive font */
   .summary p {
     font-size: 0.9rem;
     line-height: 1.5;
     text-align: justify;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   .main-content {
     padding: 0 15px;
     grid-template-columns: 1fr;
     gap: 30px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   .experience-section {
     padding: 15px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   .experience-item-full {
     grid-template-columns: 1fr;
     gap: 15px;
     margin-bottom: 25px;
     padding: 20px 20px 30px 20px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   .experience-right .position-title {
     text-align: left;
     margin-bottom: 10px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   /* Company logos bigger and centered on mobile */
   .company-logo {
     width: 100px;
     height: 100px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   .experience-left .company-info {
     align-items: center;
     text-align: center;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   .experience-left .company {
     text-align: center;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   /* Tech skills responsive */
   .tech-list {
     gap: 8px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   .tech-list li {
     font-size: 0.85rem;
     padding: 8px 14px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   /* Bottom section responsive */
   .bottom-section {
     padding: 20px 15px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   /* Footer full width */
   .footer {
     border-radius: 0;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   .bottom-row {
     flex-direction: column;
     gap: 30px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   /* Fix interests overflow and alignment */
   .interests {
     width: 100%;
     overflow: hidden;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   .interest-icons {
     display: flex;
@@ -1094,7 +1478,12 @@ body {
     gap: 15px;
     flex-wrap: wrap;
     margin-bottom: 10px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   .interest-icon {
     font-size: 1.5rem !important;
@@ -1103,18 +1492,33 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   /* Align languages and interests sections */
   .bottom-languages,
   .bottom-interests {
     width: 100%;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   .language-list {
     margin: 0;
     padding: 0;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   .language-list li {
     display: flex;
@@ -1123,76 +1527,27 @@ body {
     padding: 12px 15px;
     min-height: 40px;
     margin-bottom: 8px;
+    /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
   }
+
+}
   
   .language-sample {
     margin-left: 20px;
     flex-shrink: 0;
-  }
-}
-
-/* Extra small screens */
-@media (max-width: 480px) {
-  body {
-    padding: 5px 0;
-  }
-  
-  .resume-container {
-    width: 100%;
-    border-radius: 0;
-  }
-  
-  .name {
-    font-size: 1.6rem;
-    letter-spacing: 1px;
-  }
-  
-  .role-title {
-    font-size: 1rem;
-  }
-  
-  .header, .summary, .main-content, .experience-section, .bottom-section {
-    padding: 15px;
-  }
-  
-  .experience-item-full {
-    padding: 15px 15px 25px 15px;
-    margin-bottom: 20px;
-  }
-  
-  .company-logo {
-    width: 50px;
-    height: 50px;
-  }
-  
-  .tech-list li {
-    font-size: 0.8rem;
-    padding: 6px 12px;
-  }
-  
-  .position-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  
-  .education-item {
-    flex-direction: column;
-    gap: 10px;
-  }
-  
+    /* Education degree smaller on mobile */
   .degree {
-    text-align: left;
+    font-size: 0.85rem;
   }
+
+}
+  /* Education degree smaller on mobile */
+  .degree {
+    font-size: 0.85rem;
+  }
+
 }
 
-@media print {
-  .resume-container {
-    box-shadow: none;
-    margin: 0;
-    max-width: none;
-  }
-  
-  body {
-    background: white;
-  }
-}
+/* Extra small screens - maintain layout with horizontal scroll */
