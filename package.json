@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages --delete -d dist",
+    "deploy": "gh-pages -d dist",
+    "deploy:clean": "git branch -D gh-pages 2>/dev/null || true && npm run deploy",
     "redeploy": "npm run build && npm run deploy"
   },
   "dependencies": {
