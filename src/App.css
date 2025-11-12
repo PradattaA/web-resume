@@ -774,6 +774,8 @@ body {
   overflow: hidden;
   transition: all 0.3s ease;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
 }
 
 .language-header {
@@ -799,8 +801,10 @@ body {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
-  margin: 0 -3px 0 0;
-  border-radius: 0 5px 0 0;
+  margin: 0;
+  border-radius: 0 8px 8px 0;
+  display: block;
+  width: 100%;
 }
 
 .language-item.expanded .language-skills {
@@ -1609,33 +1613,37 @@ body {
   /* Disable tooltips on mobile */
   .interest-icon::after {
     display: none !important;
-    /* Education degree smaller on mobile */
-  .degree {
-    font-size: 0.85rem;
   }
-
-}
   
-  /* Align languages and interests sections */
-  .bottom-languages,
-  .bottom-interests {
-    width: 100%;
-    /* Education degree smaller on mobile */
-  .degree {
-    font-size: 0.85rem;
+  /* Fix language container for mobile */
+  .bottom-languages {
+    height: auto !important;
+    overflow: visible !important;
+  }
+  
+  /* Fix language text alignment on mobile */
+  .bottom-languages .language-header {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  .bottom-languages .language-name {
+    order: 1 !important;
+    text-align: left !important;
+  }
+  
+  .bottom-languages .language-sample {
+    order: 2 !important;
+    text-align: right !important;
   }
 
-}
   
   .language-list {
     margin: 0;
     padding: 0;
-    /* Education degree smaller on mobile */
-  .degree {
-    font-size: 0.85rem;
   }
-
-}
   
   .language-list li {
     display: flex;
@@ -1644,25 +1652,11 @@ body {
     padding: 12px 15px;
     min-height: 40px;
     margin-bottom: 8px;
-    /* Education degree smaller on mobile */
-  .degree {
-    font-size: 0.85rem;
   }
-
-}
   
   .language-sample {
     margin-left: 20px;
     flex-shrink: 0;
-    /* Education degree smaller on mobile */
-  .degree {
-    font-size: 0.85rem;
-  }
-
-}
-  /* Education degree smaller on mobile */
-  .degree {
-    font-size: 0.85rem;
   }
 
 }
