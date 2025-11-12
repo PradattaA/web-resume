@@ -1,0 +1,29 @@
+[
+  {
+    "name": "English",
+    "sample": "Aa",
+    "skills": {
+      "speak": 5,
+      "read": 5,
+      "write": 5
+    }
+  },
+  {
+    "name": "Bengali",
+    "sample": "ক",
+    "skills": {
+      "speak": 5,
+      "read": 5,
+      "write": 5
+    }
+  },
+  {
+    "name": "Hindi",
+    "sample": "क",
+    "skills": {
+      "speak": 5,
+      "read": 3,
+      "write": 1
+    }
+  }
+]
