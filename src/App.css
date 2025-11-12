@@ -221,7 +221,7 @@ body {
   display: grid;
   grid-template-columns: 24px auto;
   align-items: center;
-  column-gap: 10px;
+  column-gap: 20px;
   font-size: 0.98rem;
   color: #ffffff;
 }
@@ -242,6 +242,26 @@ body {
 .contact-link:hover { 
   color: #ffffff;
   text-decoration: underline; 
+}
+
+.social-icon {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 15px;
+  transition: color 0.3s ease;
+}
+
+.social-icon .contact-icon {
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icon:hover .contact-icon {
+  color: #8ac1e6;
+}
+
+.social-icon:last-child {
+  margin-right: 0;
 }
 
 /* Summary Section */
@@ -531,7 +551,7 @@ body {
 }
 
 .interest-icon {
-  font-size: 2.5rem;
+  font-size: 3.2rem;
   color: #666;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -583,13 +603,26 @@ body {
   gap: 40px;
   margin-bottom: 30px;
   padding: 25px 25px 35px 25px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
 }
 
-.experience-item-full:nth-child(even) {
-  background-color: #f8f9fa;
+/* Subtle glassy hover effect */
+.experience-item-full:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 
+    0 10px 35px rgba(0, 0, 0, 0.12),
+    0 3px 10px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
 }
 
 .experience-item-full:last-child {
@@ -720,23 +753,99 @@ body {
   gap: 60px;
 }
 
+.bottom-languages {
+  height: 460px;
+  overflow: hidden;
+}
+
 .bottom-languages ul {
   list-style: none;
   padding: 0;
   margin-bottom: 40px;
 }
 
-.bottom-languages li {
+.language-item {
   background: #f8f9fa;
-  padding: 12px 20px;
   margin-bottom: 15px;
   border-left: 3px solid #3498db;
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 8px 8px 0;
   font-size: 1rem;
   font-weight: 600;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.language-header {
+  padding: 12px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Removed hover color change */
+
+.language-name {
+  font-weight: 600;
+}
+
+.language-skills {
+  padding: 0;
+  background: rgba(255, 255, 255, 0.9);
+  border-top: 1px solid rgba(52, 152, 219, 0.2);
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+  margin: 0 -3px 0 0;
+  border-radius: 0 5px 0 0;
+}
+
+.language-item.expanded .language-skills {
+  opacity: 1;
+  max-height: 120px;
+  padding: 12px 20px;
+}
+
+.skill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.skill-row:last-child {
+  margin-bottom: 0;
+}
+
+.skill-label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #2c3e50;
+  min-width: 50px;
+}
+
+.skill-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.skill-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #3498db;
+  transition: all 0.3s ease;
+}
+
+.skill-dot.filled {
+  background-color: #3498db;
+}
+
+.skill-dot.empty {
+  background-color: transparent;
 }
 
 .language-sample {
@@ -1452,6 +1561,7 @@ body {
 }
   
   .bottom-row {
+    display: flex;
     flex-direction: column;
     gap: 30px;
     /* Education degree smaller on mobile */
@@ -1475,9 +1585,10 @@ body {
   .interest-icons {
     display: flex;
     justify-content: flex-start;
-    gap: 15px;
+    gap: 40px;
     flex-wrap: wrap;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    padding: 10px;
     /* Education degree smaller on mobile */
   .degree {
     font-size: 0.85rem;
@@ -1486,12 +1597,18 @@ body {
 }
   
   .interest-icon {
-    font-size: 1.5rem !important;
-    width: 40px;
-    height: 40px;
+    font-size: 3rem !important;
+    width: 70px;
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+  }
+  
+  /* Disable tooltips on mobile */
+  .interest-icon::after {
+    display: none !important;
     /* Education degree smaller on mobile */
   .degree {
     font-size: 0.85rem;

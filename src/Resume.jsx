@@ -22,7 +22,7 @@ function Resume() {
 
       <div className="resume-container">
         <Header />
-        <Summary />
+        <Summary yearsOfExperience={yearsOfExperience} />
         <Skills yearsOfExperience={yearsOfExperience} />
         <Experience />
 

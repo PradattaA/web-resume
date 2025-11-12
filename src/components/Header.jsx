@@ -28,8 +28,12 @@ function Header() {
               <a href="mailto:contact@pradatta.dev" className="contact-link">contact@pradatta.dev</a>
             </li>
             <li className="contact-row">
-              <i className="fab fa-linkedin contact-icon" aria-hidden="true"></i>
-              <a href="https://linkedin.com/in/pradattaadhikary" target="_blank" rel="noopener noreferrer" className="contact-link">linkedin.com/in/pradattaadhikary</a>
+              <a href="https://linkedin.com/in/pradattaadhikary" target="_blank" rel="noopener noreferrer" className="social-icon">
+                <i className="fab fa-linkedin contact-icon" aria-hidden="true"></i>
+              </a>
+              <a href="https://github.com/PradattaA" target="_blank" rel="noopener noreferrer" className="social-icon">
+                <i className="fab fa-github contact-icon" aria-hidden="true"></i>
+              </a>
             </li>
           </ul>
         </div>
