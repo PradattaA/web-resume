@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://pradattaadhikary.github.io/web-resume",
+  "homepage": "https://www.pradatta.dev",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
