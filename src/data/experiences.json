@@ -9,8 +9,9 @@
     "company": "Wise (formerly TransferWise)",
     "logo": "/logos/wise.png",
     "location": "London, UK",
-    "position": "Senior Software Engineer",
+    "position": "Engineering Lead",
     "achievements": [
+      "Engineering Lead for Product Eligibility team",
       "Currently Part of Regional Platform Squad, where we build and manage several service essential for Reginal Expansion",
       "Building intelligent address validation using various APIs like Loqate and Google.",
       "Centralising address collection steps for various types of customer onboarding."
