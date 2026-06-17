@@ -1,3 +1,7 @@
+import experiencesData from '../data/experiences.json'
+
+const currentRole = experiencesData.find(e => e.isCurrent)?.position ?? experiencesData[0].position
+
 function Header() {
   return (
     <header className="header header--split" id="header">
@@ -9,7 +13,7 @@ function Header() {
             </div>
             <div className="profile-text">
               <h1 className="name name--primary">PRADATTA ADHIKARY</h1>
-              <h2 className="role-title">Senior Software Engineer</h2>
+              <h2 className="role-title">{currentRole}</h2>
             </div>
           </div>
         </div>
